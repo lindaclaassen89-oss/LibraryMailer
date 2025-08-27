@@ -46,7 +46,7 @@ if (TODAY.strftime("%Y-%m-%d") not in dates # not yet run today
             file.write(f"{TODAY}\n")
     except Exception as e:
         with open("date_log.txt", "a") as file:
-            file.write(f"{TODAY} failed\n")
+            file.write(f"{TODAY} failed: {e}\n")
 
 else:
     logger.info(f"\n\nCriteria not met: {datetime.now()}\n\n")
