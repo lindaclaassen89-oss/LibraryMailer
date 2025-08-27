@@ -17,7 +17,7 @@ with open("date_log.txt", "r") as file:
 if (TODAY.strftime("%Y-%m-%d") not in dates # not yet run today
     and (TODAY - START_DATE).days % 14 == 0 and (TODAY - START_DATE).days % (3*14) != 0): # every 2nd week except every 6th week
 
-    logger.info(f"\n\nCriteria met: {datetime.datetime.now()}\n\n")
+    logger.info(f"\n\nCriteria met: {datetime.now()}\n\n")
 
     # Email configuration
     smtp_server = "smtp.gmail.com"
@@ -49,4 +49,4 @@ if (TODAY.strftime("%Y-%m-%d") not in dates # not yet run today
             file.write(f"{TODAY} failed\n")
 
 else:
-    logger.info(f"\n\nCriteria not met: {datetime.datetime.now()}\n\n")
+    logger.info(f"\n\nCriteria not met: {datetime.now()}\n\n")
