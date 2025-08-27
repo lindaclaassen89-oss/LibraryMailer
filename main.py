@@ -2,9 +2,13 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import date, datetime
+import logging
 
-START_DATE = datetime.strptime("2025-08-12", "%Y-%m-%d").date()
+START_DATE = datetime.strptime("2025-08-13", "%Y-%m-%d").date()
 TODAY = date.today()
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 with open("date_log.txt", "r") as file:
     dates = file.readlines()
@@ -13,11 +17,13 @@ with open("date_log.txt", "r") as file:
 if (TODAY.strftime("%Y-%m-%d") not in dates # not yet run today
     and (TODAY - START_DATE).days % 14 == 0 and (TODAY - START_DATE).days % (3*14) != 0): # every 2nd week except every 6th week
 
+    logger.info(f"\n\nCriteria met: {datetime.datetime.now()}\n\n")
+
     # Email configuration
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     sender_email = "linda.claassen.89@gmail.com"
-    receiver_email = sender_email
+    receiver_email = "brooklyn@tshwane.gov.za"
     password = "isap rioe okdl xzwa"
 
     # Create the email
@@ -42,3 +48,5 @@ if (TODAY.strftime("%Y-%m-%d") not in dates # not yet run today
         with open("date_log.txt", "a") as file:
             file.write(f"{TODAY} failed\n")
 
+else:
+    logger.info(f"\n\nCriteria not met: {datetime.datetime.now()}\n\n")
