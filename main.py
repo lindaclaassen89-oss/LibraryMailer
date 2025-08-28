@@ -3,9 +3,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import date, datetime
 import logging
+from streamlit_autorefresh import st_autorefresh
 
 START_DATE = datetime.strptime("2025-08-13", "%Y-%m-%d").date()
 TODAY = date.today()
+
+# Prevent app from going to sleep:
+st_autorefresh(interval=3*60*60*1000, limit=100, key="keep_alive")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
