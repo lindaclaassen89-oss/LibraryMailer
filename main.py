@@ -14,7 +14,7 @@ def main(mytimer: func.TimerRequest) -> None:
         logging.error(f"Error running app: {e}")
 
 def my_app():
-    START_DATE = datetime.strptime("2025-08-13", "%Y-%m-%d").date()
+    START_DATE = datetime.strptime("2025-10-01", "%Y-%m-%d").date()
     TODAY = date.today()
 
     logging.basicConfig(level=logging.INFO)
