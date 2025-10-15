@@ -5,13 +5,13 @@ from datetime import date, datetime
 import logging
 import azure.functions as func
 
-def main(mytimer: func.TimerRequest) -> None:
-    logging.info("Azure Function triggered")
-    try:
-        my_app()
-        logging.info("App ran successfully")
-    except Exception as e:
-        logging.error(f"Error running app: {e}")
+# def main(mytimer: func.TimerRequest) -> None:
+#     logging.info("Azure Function triggered")
+#     try:
+#         my_app()
+#         logging.info("App ran successfully")
+#     except Exception as e:
+#         logging.error(f"Error running app: {e}")
 
 def my_app():
     START_DATE = datetime.strptime("2025-10-01", "%Y-%m-%d").date()
@@ -61,3 +61,5 @@ def my_app():
             with open("date_log.txt", "a") as file:
                 file.write(f"{TODAY} failed: {e}\n")
 
+
+my_app()
