@@ -62,4 +62,4 @@ def my_app():
                 file.write(f"{TODAY} failed: {e}\n")
 
 
-my_app()
+# my_app()
