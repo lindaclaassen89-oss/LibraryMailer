@@ -10,8 +10,7 @@ TODAY = date.today()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-if  # 1==0:
-    ((TODAY - START_DATE).days % (2*7) != 0 
+if  ((TODAY - START_DATE).days % (2*7) != 0 
     or (TODAY - START_DATE).days % (6*7) == 0
     ): # every 2nd week except every 6th week
     logger.info(f"\n\nCriteria not met: {datetime.now()}\n\n")
