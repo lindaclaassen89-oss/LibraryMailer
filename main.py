@@ -22,7 +22,7 @@ else:
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     sender_email = "linda.claassen.89@gmail.com"
-    receiver_email = "linda.claassen.89@gmail.com " #brooklyn@tshwane.gov.za"
+    receiver_email = "brooklyn@tshwane.gov.za"
     password = "isap rioe okdl xzwa"
 
     # Create the email
@@ -44,5 +44,6 @@ else:
     except Exception as e:
         with open("date_log.txt", "a") as file:
             logger.error(f"{TODAY} failed: {e}\n")
+
 
 
