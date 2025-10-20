@@ -2,7 +2,7 @@ name: Run Python Script on Schedule
 
 on:
   schedule:
-    - cron: '30 6 * * *' # 3 = Wednesday
+    - cron: '30 6 * * 3' # 8:30 every Wednesday (see IF for skips)
   workflow_dispatch: # Allows manual trigger
 
 jobs:
@@ -19,4 +19,5 @@ jobs:
           pip install -r requirements.txt
       - name: Run script
         run: |
+
           python main.py
